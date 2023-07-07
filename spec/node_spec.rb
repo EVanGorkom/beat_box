@@ -17,7 +17,7 @@ RSpec.describe Node do
     it "has spce for a following node" do
         node = Node.new("plop")
 
-        expect(node.next_node).to eq()
+        expect(node.next_node).to eq(nil)
     end
 
 end
