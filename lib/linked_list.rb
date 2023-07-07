@@ -1,3 +1,5 @@
+require './lib/node.rb'
+
 class LinkedList
     attr_accessor :head
 
@@ -6,6 +8,14 @@ class LinkedList
     end
 
     def append(data)
-        list = "#{data}"
+        if @head == nil
+            @head = Node.new(data)
+            # require 'pry';binding.pry
+        else
+            next_node = Node.new("#{data}")
+        end
+
+        # list = head + next_node
     end
-end
+
+end 

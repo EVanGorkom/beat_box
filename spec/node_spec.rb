@@ -14,7 +14,7 @@ RSpec.describe Node do
         expect(node.data).to eq("plop")
     end
 
-    it "has spce for a following node" do
+    it "has space for a following node" do
         node = Node.new("plop")
 
         expect(node.next_node).to eq(nil)
