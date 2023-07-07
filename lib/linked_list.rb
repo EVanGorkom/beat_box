@@ -5,4 +5,7 @@ class LinkedList
         @head = nil
     end
 
+    def append(data)
+        list = "#{data}"
+    end
 end

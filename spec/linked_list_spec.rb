@@ -15,4 +15,11 @@ RSpec.describe LinkedList do
         expect(list.head).to eq(nil)
     end
 
+    it "can append a new piece of data to the list" do
+        list = LinkedList.new
+        # need to modify this area
+
+        expect(list.append("doop")).to eq("doop")
+    end
+
 end
