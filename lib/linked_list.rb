@@ -10,12 +10,29 @@ class LinkedList
     def append(data)
         if @head == nil
             @head = Node.new(data)
-            # require 'pry';binding.pry
         else
             next_node = Node.new("#{data}")
         end
+    end
 
-        # list = head + next_node
+    def count
+        if @head == nil
+            count = 0
+        else
+            count = 1
+        end
+        current_node = @head
+        
+        while current_node.next_node != nil
+            count += 1
+            current_node = current_node.next_node
+        end
+        count
+
+    end
+
+    def to_string
+        current_node.to_s
     end
 
 end 

@@ -15,7 +15,7 @@ RSpec.describe LinkedList do
         expect(list.head).to eq(nil)
     end
 
-    it "can append a new piece of data to the list" do
+    it "can #append" do
         list = LinkedList.new
         list.append("doop")
 
@@ -24,4 +24,17 @@ RSpec.describe LinkedList do
         expect(list.head.next_node).to eq(nil)
     end
 
+    it "can #count" do
+        list = LinkedList.new
+        list.append("doop")
+
+        expect(list.count).to eq(1)
+    end 
+
+    it "can #to_string" do
+        list = LinkedList.new
+        list.append("doop")
+
+        expect(list.)
+    end
 end
