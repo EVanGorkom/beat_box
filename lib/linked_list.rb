@@ -7,11 +7,12 @@ class LinkedList
         @head = nil
     end
 
-    def append(data)
+    def append(new_value)
+        # add a new value to the end of the list
         if @head == nil
-            @head = Node.new(data)
+            @head = Node.new(new_value)
         else
-            next_node = Node.new("#{data}")
+            @head.next_node = Node.new(new_value)
         end
     end
 
@@ -32,7 +33,13 @@ class LinkedList
     end
 
     def to_string
-
+        current_node = @head
+        current_node.data
+        # while (current_node != nil)
+            
+        #     puts current_node.data 
+        #     current_node = current_node.next_node
+        # end
     end
 
 end 
