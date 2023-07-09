@@ -34,12 +34,22 @@ class LinkedList
 
     def to_string
         current_node = @head
-        current_node.data
-        # while (current_node != nil)
-            
-        #     puts current_node.data 
-        #     current_node = current_node.next_node
-        # end
+        list_string = ""
+        add_comma = ", "
+
+        while (current_node != nil)
+            if current_node.next_node == nil
+                list_string << current_node.data
+            else
+                list_string << current_node.data + add_comma
+            end
+            current_node = current_node.next_node
+        end
+        list_string
+    end
+
+    def prepend(new_value)
+        @head = Node.new(new_value)
     end
 
 end 

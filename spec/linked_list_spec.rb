@@ -40,7 +40,8 @@ describe "#to_string" do
     it "can turn the elements of the list into a single string" do
         list = LinkedList.new
         list.append("doop")
+        list.append("deep")
 
-        expect(list.to_string).to eq("doop")
+        expect(list.to_string).to eq("doop, deep")
     end
 end
