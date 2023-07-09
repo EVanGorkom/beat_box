@@ -32,7 +32,7 @@ class LinkedList
     end
 
     def to_string
-        current_node.to_s
+
     end
 
 end 
