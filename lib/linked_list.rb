@@ -83,6 +83,11 @@ class LinkedList
         current_node = @head
         list_string = ""
         add_space = " "
+
+        start_value.times do
+            current_node = current_node.next_node
+        end
+
         num_of_returns.times do
             if current_node.next_node == nil
                 list_string << current_node.data
@@ -93,7 +98,7 @@ class LinkedList
             end
         end
         #needs the same count tracking strat from above
-        list_string
+        list_string.strip
     end
 
 #     def pop
