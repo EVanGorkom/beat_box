@@ -12,7 +12,11 @@ class LinkedList
         if @head == nil
             @head = Node.new(new_value)
         else
-            @head.next_node = Node.new(new_value)
+            current_node = @head
+            while current_node.next_node != nil
+                current_node = current_node.next_node
+            end
+            current_node.next_node = Node.new(new_value)
         end
     end
 
@@ -35,13 +39,13 @@ class LinkedList
     def to_string
         current_node = @head
         list_string = ""
-        add_comma = ", "
+        add_space = " "
 
         while (current_node != nil)
             if current_node.next_node == nil
                 list_string << current_node.data
             else
-                list_string << current_node.data + add_comma
+                list_string << current_node.data + add_space
             end
             current_node = current_node.next_node
         end
@@ -58,4 +62,40 @@ class LinkedList
         old_head.next_node = old_head_next #linking the rest of the list back together
     end
 
+    # def insert(start_value, new_value)
+    #     current_node = @head
+    #     inserted_node = Node.new(new_value)
+        
+    #     until count == start_value
+    #         require 'pry';binding.pry
+    #         current_node = current_node.next_node
+    #     end
+    #     # require 'pry';binding.pry
+    #     inserted_node.next_node = current_node.next_node
+    #     current_node.next_node = inserted_node
+    # end
+
+    def find(start_value, num_of_returns)
+        #needs the same count tracking strat from above
+    end
+
+    def pop
+        current_node = @head
+        until current_node.next_node == nil
+            current_node = current_node.next_node
+        end
+        current_node.data = nil
+    end
+
+    def includes?(value)
+        current_node = @head
+        until current_node == value
+            current_node = current_node.next_node
+            if current_node == value
+                true
+            else
+                false
+            end
+        end
+    end
 end 

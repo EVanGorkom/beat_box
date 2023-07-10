@@ -42,7 +42,7 @@ describe "#to_string" do
         list.append("doop")
         list.append("deep")
 
-        expect(list.to_string).to eq("doop, deep")
+        expect(list.to_string).to eq("doop deep")
     end
 end
 
@@ -53,6 +53,17 @@ describe "#prepend" do
         list.append("suu")
         list.prepend("dop")
 
-        expect(list.to_string).to eq("dop, plop, suu")
+        expect(list.to_string).to eq("dop plop suu")
+    end
+end
+
+describe "#insert" do
+    xit "can add a new node to the list at a designated location within the list" do
+        list = LinkedList.new
+        list.append("plop")
+        list.append("suu")
+        list.prepend("dop")
+
+        expect(list.insert(1, "woo")).to eq("dop woo plop suu")
     end
 end
