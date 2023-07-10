@@ -45,3 +45,14 @@ describe "#to_string" do
         expect(list.to_string).to eq("doop, deep")
     end
 end
+
+describe "#prepend" do
+    it "can add a new element to the beginning of the list" do
+        list = LinkedList.new
+        list.append("plop")
+        list.append("suu")
+        list.prepend("dop")
+
+        expect(list.to_string).to eq("dop, plop, suu")
+    end
+end
