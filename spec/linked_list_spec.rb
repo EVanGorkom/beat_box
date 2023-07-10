@@ -58,12 +58,13 @@ describe "#prepend" do
 end
 
 describe "#insert" do
-    xit "can add a new node to the list at a designated location within the list" do
+    it "can add a new node to the list at a designated location within the list" do
         list = LinkedList.new
         list.append("plop")
         list.append("suu")
         list.prepend("dop")
-
-        expect(list.insert(1, "woo")).to eq("dop woo plop suu")
+        list.insert(1, "woo")
+        
+        expect(list.to_string).to eq("dop woo plop suu")
     end
 end
