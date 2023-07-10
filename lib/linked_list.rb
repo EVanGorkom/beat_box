@@ -101,23 +101,25 @@ class LinkedList
         list_string.strip
     end
 
-#     def pop
-#         current_node = @head
-#         until current_node.next_node == nil
-#             current_node = current_node.next_node
-#         end
-#         current_node.data = nil
-#     end
+    def includes?(value)
+        current_node = @head
+        until current_node.data == value || current_node.next_node == nil
+            current_node = current_node.next_node
+        end
 
-#     def includes?(value)
-#         current_node = @head
-#         until current_node == value
-#             current_node = current_node.next_node
-#             if current_node == value
-#                 true
-#             else
-#                 false
-#             end
-#         end
-#     end
+        if current_node.data == value
+            true
+        else
+            false
+        end
+    end
+
+    def pop
+        current_node = @head
+        until current_node.next_node == nil
+            current_node = current_node.next_node
+        end
+        current_node.data = nil
+    end
+
 end 
