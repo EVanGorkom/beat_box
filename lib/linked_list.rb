@@ -64,7 +64,6 @@ class LinkedList
     def insert(start_value, new_value)
         inserted_node = Node.new(new_value)
         if start_value == 0
-            require 'pry';binding.pry
             inserted_node.next_node = @head
             @head = inserted_node
         elsif
@@ -80,9 +79,22 @@ class LinkedList
         end 
     end
 
-#     def find(start_value, num_of_returns)
-#         #needs the same count tracking strat from above
-#     end
+    def find(start_value, num_of_returns)
+        current_node = @head
+        list_string = ""
+        add_space = " "
+        num_of_returns.times do
+            if current_node.next_node == nil
+                list_string << current_node.data
+                current_node = current_node.next_node
+            else
+                list_string << current_node.data + add_space
+                current_node = current_node.next_node
+            end
+        end
+        #needs the same count tracking strat from above
+        list_string
+    end
 
 #     def pop
 #         current_node = @head

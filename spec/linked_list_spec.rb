@@ -64,7 +64,21 @@ describe "#insert" do
         list.append("suu")
         list.prepend("dop")
         list.insert(1, "woo")
-        
+
         expect(list.to_string).to eq("dop woo plop suu")
+    end
+end
+
+describe "#find" do
+    it "can find the value at a specific number in the list and return a specified number of nodes" do
+        list = LinkedList.new
+        list.append("deep")
+        list.append("woo")
+        list.append("shi")
+        list.append("shu")
+        list.append("blop")
+
+        expect(list.find(2, 1)).to eq("shi")
+        expect(list.find(1, 3)).to eq("woo shi shu")
     end
 end
