@@ -116,10 +116,13 @@ class LinkedList
 
     def pop
         current_node = @head
-        until current_node.next_node == nil
+        while current_node.next_node.next_node != nil
             current_node = current_node.next_node
         end
-        current_node.data = nil
+        popped_node = current_node.next_node
+        current_node.next_node = nil
+        popped_node.data        
     end
+    
 
 end 
