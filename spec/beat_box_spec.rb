@@ -35,3 +35,13 @@ describe "#count" do
         expect(bb.count).to eq(6)
     end
 end
+
+describe "#play" do
+    it "can play back the sounds that the list has stored" do
+        bb = Beat_Box.new
+        bb.append("deep doo ditt")
+        bb.append("woo hoo shu")
+        
+        bb.play
+    end
+end
