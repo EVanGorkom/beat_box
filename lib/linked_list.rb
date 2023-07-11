@@ -32,7 +32,6 @@ class LinkedList
             current_node = current_node.next_node
         end
         count
-
     end
 
     def to_string
@@ -52,13 +51,11 @@ class LinkedList
     end
 
     def prepend(new_value)        
-        old_head_next = @head.next_node #saving the original head's "next" value as a variable to link to the rest of the list after we establish the new head
-        
-        new_head = Node.new(new_value) #new head value
-        old_head = Node.new(@head.data) #saving the old head's value without overwriting the @head value
-        new_head.next_node = old_head #establishing the "next" value of the new head as the original head
-        @head = new_head # reassigning the @head attribute to our new value
-        old_head.next_node = old_head_next #linking the rest of the list back together
+        old_head_next = @head.next_node 
+        new_head = Node.new(new_value) 
+        old_head = Node.new(@head.data) 
+        @head = new_head 
+        old_head.next_node = old_head_next 
     end
 
     def insert(start_value, new_value)
@@ -97,7 +94,6 @@ class LinkedList
                 current_node = current_node.next_node
             end
         end
-        #needs the same count tracking strat from above
         list_string.strip
     end
 
@@ -124,5 +120,4 @@ class LinkedList
         popped_node.data        
     end
     
-
 end 
