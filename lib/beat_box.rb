@@ -14,5 +14,8 @@ class Beat_Box
             list.append(value)
         end
     end
+    def count
+        list.count
+    end
 
 end

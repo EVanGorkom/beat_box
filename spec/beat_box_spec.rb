@@ -20,8 +20,18 @@ end
 describe "#append" do
     it "can append one or more elements into a corresponding amount of nodes for the list" do
         bb = Beat_Box.new
+        bb.append("deep doo ditt")
+
+        expect(bb.list.to_string).to eq("deep doo ditt")
+    end
+end
+
+describe "#count" do
+    it "can count the number of elements within the list" do
+        bb = Beat_Box.new
+        bb.append("deep doo ditt")
         bb.append("woo hoo shu")
 
-        expect(bb.list.to_string).to eq("woo hoo shu")
+        expect(bb.count).to eq(6)
     end
 end
