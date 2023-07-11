@@ -8,11 +8,14 @@ class LinkedList
     end
 
     def append(new_value)
-        # add a new value to the end of the list
         if @head == nil
             @head = Node.new(new_value)
         else
-            @head.next_node = Node.new(new_value)
+            current_node = @head
+            while current_node.next_node != nil
+                current_node = current_node.next_node
+            end
+            current_node.next_node = Node.new(new_value)
         end
     end
 
@@ -34,12 +37,92 @@ class LinkedList
 
     def to_string
         current_node = @head
-        current_node.data
-        # while (current_node != nil)
-            
-        #     puts current_node.data 
-        #     current_node = current_node.next_node
-        # end
+        list_string = ""
+        add_space = " "
+
+        while (current_node != nil)
+            if current_node.next_node == nil
+                list_string << current_node.data
+            else
+                list_string << current_node.data + add_space
+            end
+            current_node = current_node.next_node
+        end
+        list_string
     end
+
+    def prepend(new_value)        
+        old_head_next = @head.next_node #saving the original head's "next" value as a variable to link to the rest of the list after we establish the new head
+        
+        new_head = Node.new(new_value) #new head value
+        old_head = Node.new(@head.data) #saving the old head's value without overwriting the @head value
+        new_head.next_node = old_head #establishing the "next" value of the new head as the original head
+        @head = new_head # reassigning the @head attribute to our new value
+        old_head.next_node = old_head_next #linking the rest of the list back together
+    end
+
+    def insert(start_value, new_value)
+        inserted_node = Node.new(new_value)
+        if start_value == 0
+            inserted_node.next_node = @head
+            @head = inserted_node
+        elsif
+            current_node = @head
+            start_value == 1
+            inserted_node.next_node = current_node.next_node
+            current_node.next_node = inserted_node    
+        elsif
+            (start_value - 1).times do
+            inserted_node.next_node = current_node.next_node
+            current_node.next_node = inserted_node
+            end
+        end 
+    end
+
+    def find(start_value, num_of_returns)
+        current_node = @head
+        list_string = ""
+        add_space = " "
+
+        start_value.times do
+            current_node = current_node.next_node
+        end
+
+        num_of_returns.times do
+            if current_node.next_node == nil
+                list_string << current_node.data
+                current_node = current_node.next_node
+            else
+                list_string << current_node.data + add_space
+                current_node = current_node.next_node
+            end
+        end
+        #needs the same count tracking strat from above
+        list_string.strip
+    end
+
+    def includes?(value)
+        current_node = @head
+        until current_node.data == value || current_node.next_node == nil
+            current_node = current_node.next_node
+        end
+
+        if current_node.data == value
+            true
+        else
+            false
+        end
+    end
+
+    def pop
+        current_node = @head
+        while current_node.next_node.next_node != nil
+            current_node = current_node.next_node
+        end
+        popped_node = current_node.next_node
+        current_node.next_node = nil
+        popped_node.data        
+    end
+    
 
 end 
