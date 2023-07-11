@@ -22,6 +22,6 @@ describe "#append" do
         bb = Beat_Box.new
         bb.append("woo hoo shu")
 
-        expect(bb.list).to eq("woo hoo shu")
+        expect(bb.list.to_string).to eq("woo hoo shu")
     end
 end
